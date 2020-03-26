@@ -14,13 +14,13 @@
                             <label>DOCUMENTO DE IDENTIDAD</label>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="txtNroDocumento" runat="server" CssClass="form-control" Text=""></asp:TextBox>
+                            <asp:TextBox ID="txtId" runat="server" CssClass="form-control" Text=""></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>NOMBRES</label>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
+                            <asp:TextBox ID="txtNombres" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
                         </div>
                         <div class="form-group">
                             <label>PRIMER APELLIDO</label>
@@ -33,6 +33,12 @@
                         </div>
                         <div class="form-group">
                             <asp:TextBox ID="txtSegundoAp" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
+                        </div>
+                        <div class="form-group">
+                            <label>DIRECCION</label>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
                         </div>
                     </div>
                 </div>
@@ -56,12 +62,6 @@
                             <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
                         </div>
                         <div class="form-group">
-                            <label>DIRECCION</label>
-                        </div>
-                        <div class="form-group">
-                            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
-                        </div>
-                        <div class="form-group">
                             <label>EDAD</label>
                         </div>
                         <div class="form-group">
@@ -77,7 +77,13 @@
                             <label>FECHA INGRESO</label>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="txtFechIngreso" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
+                            <asp:Calendar id="dateCa" runat="server"></asp:Calendar>
+                        </div>
+                        <div class="form-group">
+                            <label>CLAVE</label>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox ID="txtClave" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
                         </div>
                     </div>
                 </div>
@@ -88,7 +94,7 @@
                 <table>
                     <tr>
                         <td>
-                            <asp:Button ID="btnRegistrar" runat="server"  CssClass="btn-blue" Width="200px" Text="Registrar"/>
+                            <asp:Button ID="btnRegistrar" runat="server"  CssClass="btn-blue" Width="200px" Text="Registrar" OnClick="btnRegistrar_Click"/>
                         </td>                        
                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> 
                         <td>
@@ -96,8 +102,7 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-    
+            </div> 
         
     </section>
 </asp:Content>

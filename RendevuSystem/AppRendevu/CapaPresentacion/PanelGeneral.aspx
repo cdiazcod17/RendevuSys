@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="content-header">
-        <h1 style="text-align:center">GESTION CONTRASEÑA</h1>
+        <h1 style="text-align:center">PANEL GENERAL</h1>
     </section> 
     <section class="content">
         <div class="row">

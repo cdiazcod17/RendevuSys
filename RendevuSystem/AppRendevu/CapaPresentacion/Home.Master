@@ -115,7 +115,7 @@
 </head>
 <body class="skin-blue">
     <header class="header">
-        <a href="PanelGeneral.aspx" class="logo red1">RENDEVU</a>
+        <a href="index.aspx" class="logo red1">RENDEVU</a>
         <nav class="navbar navbar-static-top red1" role="navigation" >
             <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle Navigation</span>

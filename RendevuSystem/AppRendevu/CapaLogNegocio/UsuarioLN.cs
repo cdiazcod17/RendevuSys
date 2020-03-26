@@ -35,6 +35,18 @@ namespace CapaLogNegocio
                 throw Ex;
             }
         }
+        public bool RegistrarUsuario(Usuario objUsuario)
+        {
+            try
+            {
+                return UsuarioDAO.getInstance().RegistrarUsuario(objUsuario);
+            }
+            catch(Exception Ex)
+            {
+                throw Ex;
+            }
+            
+        }
 
 
     }

@@ -24,18 +24,18 @@ namespace CapaLogNegocio
 
         #endregion
 
-        public Usuario AccesoSistema(string Id, string Pass)
+        public Usuario AccesoSistema(string Cedula, string Pass)
         {
             try
             {
-                return UsuarioDAO.getInstance().AccesoSistema(Id, Pass);
+                return UsuarioDAO.getInstance().AccesoSistema(Cedula,Pass);
             }
             catch (Exception Ex)
             {
                 throw Ex;
             }
         }
-        public bool RegistrarUsuario(Usuario objUsuario)
+        /*public bool RegistrarUsuario(Usuario objUsuario)
         {
             try
             {
@@ -47,6 +47,18 @@ namespace CapaLogNegocio
             }
             
         }
+
+        public List<Usuario> ListaUsuarios()
+        {
+            try
+            {
+                return UsuarioDAO.getInstance().ListaUsuarios();
+            }
+            catch(Exception Ex)
+            {
+                throw Ex;
+            }
+        }*/
 
 
     }

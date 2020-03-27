@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <section class="content-header">
-    <h1 style="text-align:center">REGISTRO DE USUARIOS</h1>
+    <h4 class="text-center">REGISTRO DE USUARIOS</h4>
     </section>
     <section class="content">
         <div class="row">
@@ -40,6 +40,16 @@
                         <div class="form-group">
                             <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
                         </div>
+                        <div class="form-group">
+                            <label>CIUDAD</label>
+                            <!--<asp:Label Text="(1.Bogota - 2.Medellin - 3. Cali)" runat="server" />-->
+                        </div>
+                         <!--<asp:TextBox ID="txtIdCiudad" CssClass="form-control" runat="server" Text=""></asp:TextBox>-->
+                       <asp:DropDownList ID="DDLCiudad" CssClass="form-control" runat="server">
+                            <asp:ListItem Value="1">Bogota</asp:ListItem>
+                            <asp:ListItem Value="2">Medellin</asp:ListItem>
+                            <asp:ListItem Value="3">Cali</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
             </div>
@@ -83,13 +93,12 @@
                             <label>CLAVE</label>
                         </div>
                         <div class="form-group">
-                            <asp:TextBox ID="txtClave" runat="server" CssClass="form-control" Text=""></asp:TextBox> 
+                            <asp:TextBox ID="txtClave" runat="server" CssClass="form-control" Text="" TextMode="Password"></asp:TextBox> 
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div>        
             <div align="center">
                 <table>
                     <tr>
@@ -103,6 +112,6 @@
                     </tr>
                 </table>
             </div> 
-        
+            <br />      
     </section>
 </asp:Content>

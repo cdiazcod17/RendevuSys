@@ -8,8 +8,9 @@ namespace CapaEntidades
 {
     public class Usuario
     {
-        public int Id { get; set; }
-        public Rol RTRoles { get; set; }
+        private int UsuarioId { get; set; } 
+        public string Cedula { get; set; }
+        public Rol RTRoles { get; set; }        
         public string Nombres { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
@@ -21,16 +22,15 @@ namespace CapaEntidades
         public string Clave { get; set; }
         public DateTime FechaIngreso { get; set; }
         public bool Estado { get; set; }
-
-
+        public Ciudad CiudadId { get; set; }
 
         public Usuario()
         {
 
         }
-        public Usuario(int Id, Rol RTRoles, string Nombres, string Apellido1, string Apellido2, string Direccion,string Sexo,string Email,string Telefono, int Edad,string Clave,DateTime FechaIngreso, bool Estado)
+        public Usuario(int UsuarioId,string Cedula, Rol RTRoles, string Nombres, string Apellido1, string Apellido2, string Direccion,string Sexo,string Email,string Telefono, int Edad,string Clave,DateTime FechaIngreso, bool Estado, Ciudad IdCiudad)
         {
-            this.Id = Id;
+            this.Cedula = Cedula;
             this.RTRoles = RTRoles;
             this.Nombres = Nombres;
             this.Apellido1 = Apellido1;
@@ -43,6 +43,7 @@ namespace CapaEntidades
             this.Clave = Clave;
             this.FechaIngreso = FechaIngreso;
             this.Estado = Estado;
+            this.CiudadId = IdCiudad;
         }
 
     }

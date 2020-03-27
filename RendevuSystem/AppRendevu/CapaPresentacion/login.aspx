@@ -28,21 +28,23 @@
                 <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" placeholder="Ingrese Uusario"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Ingrese Contraseña"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Ingrese Contraseña" TextMode="Password"></asp:TextBox>
             </div>
         </div>
             <div class="footer">
                 <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="btn btn-block red2 text-xl-center " OnClick="btnIngresar_Click"/>
             </div>
     </form>
-        <h5 style="text-align:center">Si no cuenta con usuario y contraseña hable con el administrador de sede</h5>
-        <div class="pull-left">
-            <img src="img/praxisimg3-2.png" alt="Visita www.praxis.edu.co"/>
-        </div>
-        <div class="pull-right">
-            <img src="img/LogoRV.png" alt="visita Rendevu Sistems" />
-        </div>
+        <h5 style="text-align:center">Si no cuenta con usuario y contraseña hable con el administrador de sede</h5>   
    </div>
+        <div class="text-center">
+ 	        <footer class="footer text-center">
+                 <br /><br />                
+	        <p>GAES 1 - SENA CSF <br /> 
+             Copyright © 2020 Company. All rights reserved</p> 
+	        <img src="img/praxisimg3-2.png" width="100" alt=""></footer>
+        </div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>

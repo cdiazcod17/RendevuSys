@@ -8,7 +8,7 @@ namespace CapaEntidades
 {
     public class Rol
     {
-        public int Id { get; set; }
+        public int Id_Rol { get; set; }
         public string Descripcion { get; set; }
         public bool Estado { get; set; }
 
@@ -16,9 +16,9 @@ namespace CapaEntidades
         {
 
         }
-        public Rol(int ID, string Descripcion, bool Estado)
+        public Rol(int Id_Rol, string Descripcion, bool Estado)
         {
-            this.Id = Id;
+            this.Id_Rol = Id_Rol;
             this.Descripcion = Descripcion;
             this.Estado = Estado;
         }

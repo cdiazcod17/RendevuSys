@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDRENDEVU" Class="EntidadesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PCARLOS;Initial Catalog=BDRENDEVU;Integrated Security=True" SettingsObjectName="CapaEntidades.Properties.Settings" SettingsPropertyName="BDRENDEVUConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Agendamientos" Member="Agendamientos">
+    <Type Name="Agendamientos">
+      <Column Name="Id_Agendamiento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UsuarioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id_Salon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id_Nivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id_Idioma" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Hora" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="Idioma_Agendamientos" Member="Idioma" ThisKey="Id_Idioma" OtherKey="Id_Idioma" Type="Idioma" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Nivel_Agendamientos" Member="Nivel" ThisKey="Id_Nivel" OtherKey="Id_Nivel" Type="Nivel" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Salones_Agendamientos" Member="Salones" ThisKey="Id_Salon" OtherKey="Id_Salon" Type="Salones" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Usuarios_Agendamientos" Member="Usuarios" ThisKey="UsuarioId" OtherKey="UsuarioId" Type="Usuarios" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsuRol" Member="UsuRol">
+    <Type Name="UsuRol">
+      <Column Name="Id_Usuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id_Rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Roles_UsuRol" Member="Roles" ThisKey="Id_Rol" OtherKey="Id_Rol" Type="Roles" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Usuarios_UsuRol" Member="Usuarios" ThisKey="Id_Usuario" OtherKey="UsuarioId" Type="Usuarios" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ciudad" Member="Ciudad">
+    <Type Name="Ciudad">
+      <Column Name="CiudadId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Ciudad_Usuarios" Member="Usuarios" ThisKey="CiudadId" OtherKey="CiudadId" Type="Usuarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Idioma" Member="Idioma">
+    <Type Name="Idioma">
+      <Column Name="Id_Idioma" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Idioma_Agendamientos" Member="Agendamientos" ThisKey="Id_Idioma" OtherKey="Id_Idioma" Type="Agendamientos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nivel" Member="Nivel">
+    <Type Name="Nivel">
+      <Column Name="Id_Nivel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Nivel_Agendamientos" Member="Agendamientos" ThisKey="Id_Nivel" OtherKey="Id_Nivel" Type="Agendamientos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Permisos" Member="Permisos">
+    <Type Name="Permisos">
+      <Column Name="Id_Permisos" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Permisos_Roles" Member="Roles" ThisKey="Id_Permisos" OtherKey="Id_Permisos" Type="Roles" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Roles">
+      <Column Name="Id_Rol" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Permisos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Roles_UsuRol" Member="UsuRol" ThisKey="Id_Rol" OtherKey="Id_Rol" Type="UsuRol" />
+      <Association Name="Permisos_Roles" Member="Permisos" ThisKey="Id_Permisos" OtherKey="Id_Permisos" Type="Permisos" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Salones" Member="Salones">
+    <Type Name="Salones">
+      <Column Name="Id_Salon" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NroSalon" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Salones_Agendamientos" Member="Agendamientos" ThisKey="Id_Salon" OtherKey="Id_Salon" Type="Agendamientos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="UsuarioId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cedula" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido2" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CiudadId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Usuarios_Agendamientos" Member="Agendamientos" ThisKey="UsuarioId" OtherKey="UsuarioId" Type="Agendamientos" />
+      <Association Name="Usuarios_UsuRol" Member="UsuRol" ThisKey="UsuarioId" OtherKey="Id_Usuario" Type="UsuRol" />
+      <Association Name="Ciudad_Usuarios" Member="Ciudad" ThisKey="CiudadId" OtherKey="CiudadId" Type="Ciudad" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

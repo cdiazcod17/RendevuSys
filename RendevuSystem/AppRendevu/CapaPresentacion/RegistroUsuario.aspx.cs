@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using CapaEntidades;
 using CapaPresentacion;
 using CapaLogNegocio;
+using System.Web.Services;
+
 
 namespace CapaPresentacion
 {
@@ -18,6 +20,20 @@ namespace CapaPresentacion
             {
 
             }
+        }
+        /*[WebMethod]
+        public static List<Usuario> ListaUsuarios()
+        {
+            List<Usuario> Lista = null;
+            try
+            {
+                Lista = UsuarioLN.getInstance().ListaUsuarios();
+            }
+            catch (Exception)
+            {
+                Lista = null;
+            }
+            return Lista;
         }
         private Usuario GetEntidad()
         {
@@ -34,6 +50,7 @@ namespace CapaPresentacion
             objUsuario.Clave = txtClave.Text;
             objUsuario.FechaIngreso = dateCa.SelectedDate;
             objUsuario.Estado = true;
+            //objUsuario.IdCiudad  = ;
 
             return objUsuario;
 
@@ -55,6 +72,6 @@ namespace CapaPresentacion
             {
                 Response.Write("<Script>alert('USUARIO INCORRECTO')</Script>");
             }
-        }
+        }*/
     }
 }
